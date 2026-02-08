@@ -44,6 +44,13 @@
         transform: scale(0.95);
         pointer-events: none;
         visibility: hidden;
+        flex: 0 0 0 !important;
+        width: 0 !important;
+        min-width: 0 !important;
+        max-width: 0 !important;
+        overflow: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
       }
       [data-portfolio-animate="section-header"],
       [data-portfolio-animate="filter-tabs"] {
