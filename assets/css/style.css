@@ -1809,8 +1809,37 @@ body {
 }
 
 /* ==========================================================================
-   Portfolio Grid Animations
+   Portfolio Grid — 最高品質UI
    ========================================================================== */
+
+/* グリッド: カード間の間隔を確実に付与（Tailwind 未適用時もフォールバック） */
+.portfolio-grid {
+  display: grid;
+  gap: 1.5rem; /* 24px - 横・縦とも適度な間隔 */
+  transition: max-width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@media (min-width: 768px) {
+  .portfolio-grid {
+    gap: 2rem; /* 32px - md */
+  }
+}
+@media (min-width: 1024px) {
+  .portfolio-grid {
+    gap: 2.5rem; /* 40px - lg */
+  }
+}
+
+.portfolio-card {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.portfolio-card:hover {
+  transform: translateY(-4px);
+}
+
+.portfolio-tablist .portfolio-filter:focus-visible {
+  outline: 2px solid rgba(217, 70, 239, 0.6);
+  outline-offset: 2px;
+}
 
 /* Card entrance animation */
 @keyframes portfolioFadeUp {

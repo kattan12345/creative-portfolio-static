@@ -159,23 +159,24 @@
             </div>
         </section>
 
-        <!-- MEDIUM FIX: M2 - コンテナを max-w-7xl に統一。L4: aria-labelledby は既に付与済み -->
-        <section id="work" class="py-24 lg:py-32 bg-neutral-950 border-t border-white/[0.06]" aria-labelledby="portfolio-heading">
+        <!-- #work ポートフォリオ: WordPress版と同様の適度な間隔（gap は style.css でも保証） -->
+        <section id="work" class="relative bg-neutral-950 border-t border-white/[0.06] py-20 md:py-24 lg:py-32" aria-labelledby="portfolio-heading">
             <div class="mx-auto max-w-7xl px-6">
-                <div data-portfolio-animate="section-header" class="text-center mb-12" id="portfolio-heading">
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Selected Work</h2>
-                    <p class="max-w-xl mx-auto text-neutral-400">A selection of our latest projects across web design, branding, and development.</p>
+                <div data-portfolio-animate="section-header" class="mb-12 text-center md:mb-16" id="portfolio-heading">
+                    <p class="mb-3 text-sm font-medium uppercase tracking-[0.25em] text-neutral-500">Portfolio</p>
+                    <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-6xl">Selected Work</h2>
+                    <p class="mx-auto max-w-xl text-base leading-relaxed text-neutral-400 md:text-lg">A selection of our latest projects across web design, branding, and development.</p>
                 </div>
-                <div data-portfolio-animate="filter-tabs" role="tablist" class="flex flex-wrap items-center justify-center gap-2 mb-10" aria-label="Filter projects by category">
-                    <button type="button" role="tab" data-filter="all" class="portfolio-filter px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-transparent text-neutral-400 hover:text-white hover:border-neutral-500 transition-colors duration-200 cursor-pointer" aria-selected="true">All</button>
-                    <button type="button" role="tab" data-filter="web-design" class="portfolio-filter px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-transparent text-neutral-400 hover:text-white hover:border-neutral-500 transition-colors duration-200 cursor-pointer" aria-selected="false">Web Design</button>
-                    <button type="button" role="tab" data-filter="branding" class="portfolio-filter px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-transparent text-neutral-400 hover:text-white hover:border-neutral-500 transition-colors duration-200 cursor-pointer" aria-selected="false">Branding</button>
-                    <button type="button" role="tab" data-filter="app-development" class="portfolio-filter px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-transparent text-neutral-400 hover:text-white hover:border-neutral-500 transition-colors duration-200 cursor-pointer" aria-selected="false">App Development</button>
-                    <button type="button" role="tab" data-filter="marketing" class="portfolio-filter px-4 py-2 rounded-lg text-sm font-medium border border-white/10 bg-transparent text-neutral-400 hover:text-white hover:border-neutral-500 transition-colors duration-200 cursor-pointer" aria-selected="false">Marketing</button>
+                <div data-portfolio-animate="filter-tabs" role="tablist" class="portfolio-tablist mb-10 flex flex-wrap items-center justify-center gap-3 md:mb-14" aria-label="Filter projects by category">
+                    <button type="button" role="tab" data-filter="all" class="portfolio-filter rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer border border-white/10 bg-transparent text-neutral-400 hover:border-white/20 hover:text-white hover:bg-white/5" aria-selected="true">All</button>
+                    <button type="button" role="tab" data-filter="web-design" class="portfolio-filter rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer border border-white/10 bg-transparent text-neutral-400 hover:border-white/20 hover:text-white hover:bg-white/5" aria-selected="false">Web Design</button>
+                    <button type="button" role="tab" data-filter="branding" class="portfolio-filter rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer border border-white/10 bg-transparent text-neutral-400 hover:border-white/20 hover:text-white hover:bg-white/5" aria-selected="false">Branding</button>
+                    <button type="button" role="tab" data-filter="app-development" class="portfolio-filter rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer border border-white/10 bg-transparent text-neutral-400 hover:border-white/20 hover:text-white hover:bg-white/5" aria-selected="false">App Development</button>
+                    <button type="button" role="tab" data-filter="marketing" class="portfolio-filter rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-300 cursor-pointer border border-white/10 bg-transparent text-neutral-400 hover:border-white/20 hover:text-white hover:bg-white/5" aria-selected="false">Marketing</button>
                 </div>
-                <div data-portfolio-grid class="flex flex-wrap justify-center gap-8" role="tabpanel" aria-label="Portfolio projects">
-                    <article data-portfolio-item data-categories="web-design,app-development" data-portfolio-animate="card" class="portfolio-card group relative w-full max-w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.125rem)]">
-                        <a href="#work" class="block">
+                <div data-portfolio-grid class="portfolio-grid grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3" role="tabpanel" aria-label="Portfolio projects" data-visible-count="6">
+                    <article data-portfolio-item data-categories="web-design,app-development" data-portfolio-animate="card" class="portfolio-card group relative flex min-h-[280px] flex-col cursor-pointer overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/80 transition-all duration-300 hover:border-fuchsia-500/30 hover:shadow-[0_0_0_1px_rgba(217,70,239,0.15)] hover:shadow-fuchsia-500/10">
+                        <a href="#work" class="block h-full min-h-0">
                             <div class="relative aspect-[4/3] overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Aurora Dashboard" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
                                 <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" aria-hidden="true"></div>
@@ -194,7 +195,7 @@
                             </div>
                         </a>
                     </article>
-                    <article data-portfolio-item data-categories="branding" data-portfolio-animate="card" class="portfolio-card group relative w-full max-w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.125rem)]">
+                    <article data-portfolio-item data-categories="branding" data-portfolio-animate="card" class="portfolio-card group relative flex min-h-[280px] flex-col cursor-pointer overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/80 transition-all duration-300 hover:border-fuchsia-500/30 hover:shadow-[0_0_0_1px_rgba(217,70,239,0.15)] hover:shadow-fuchsia-500/10">
                         <a href="#work" class="block">
                             <div class="relative aspect-[4/3] overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=400&fit=crop" alt="Luxe Brand Identity" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
@@ -214,7 +215,7 @@
                             </div>
                         </a>
                     </article>
-                    <article data-portfolio-item data-categories="app-development" data-portfolio-animate="card" class="portfolio-card group relative w-full max-w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.125rem)]">
+                    <article data-portfolio-item data-categories="app-development" data-portfolio-animate="card" class="portfolio-card group relative flex min-h-[280px] flex-col cursor-pointer overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/80 transition-all duration-300 hover:border-fuchsia-500/30 hover:shadow-[0_0_0_1px_rgba(217,70,239,0.15)] hover:shadow-fuchsia-500/10">
                         <a href="#work" class="block">
                             <div class="relative aspect-[4/3] overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&h=400&fit=crop" alt="Fitness Tracker App" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
@@ -234,7 +235,7 @@
                             </div>
                         </a>
                     </article>
-                    <article data-portfolio-item data-categories="web-design" data-portfolio-animate="card" class="portfolio-card group relative w-full max-w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.125rem)]">
+                    <article data-portfolio-item data-categories="web-design" data-portfolio-animate="card" class="portfolio-card group relative flex min-h-[280px] flex-col cursor-pointer overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/80 transition-all duration-300 hover:border-fuchsia-500/30 hover:shadow-[0_0_0_1px_rgba(217,70,239,0.15)] hover:shadow-fuchsia-500/10">
                         <a href="#work" class="block">
                             <div class="relative aspect-[4/3] overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop" alt="E-commerce Platform" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
@@ -254,7 +255,7 @@
                             </div>
                         </a>
                     </article>
-                    <article data-portfolio-item data-categories="branding,marketing" data-portfolio-animate="card" class="portfolio-card group relative w-full max-w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.125rem)]">
+                    <article data-portfolio-item data-categories="branding,marketing" data-portfolio-animate="card" class="portfolio-card group relative flex min-h-[280px] flex-col cursor-pointer overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/80 transition-all duration-300 hover:border-fuchsia-500/30 hover:shadow-[0_0_0_1px_rgba(217,70,239,0.15)] hover:shadow-fuchsia-500/10">
                         <a href="#work" class="block">
                             <div class="relative aspect-[4/3] overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&h=400&fit=crop" alt="Restaurant Rebrand" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
@@ -274,7 +275,7 @@
                             </div>
                         </a>
                     </article>
-                    <article data-portfolio-item data-categories="web-design" data-portfolio-animate="card" class="portfolio-card group relative w-full max-w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900 md:max-w-[calc(50%-1rem)] lg:max-w-[calc(33.333%-1.125rem)]">
+                    <article data-portfolio-item data-categories="web-design" data-portfolio-animate="card" class="portfolio-card group relative flex min-h-[280px] flex-col cursor-pointer overflow-hidden rounded-2xl border border-neutral-800/80 bg-neutral-900/80 transition-all duration-300 hover:border-fuchsia-500/30 hover:shadow-[0_0_0_1px_rgba(217,70,239,0.15)] hover:shadow-fuchsia-500/10">
                         <a href="#work" class="block">
                             <div class="relative aspect-[4/3] overflow-hidden">
                                 <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop" alt="Portfolio Website" class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105" loading="lazy">
@@ -295,7 +296,13 @@
                         </a>
                     </article>
                 </div>
-                <div data-portfolio-empty class="hidden text-center py-12 text-neutral-500" aria-hidden="true">No projects match this filter.</div>
+                <div data-portfolio-empty class="portfolio-empty mt-8 hidden flex flex-col items-center justify-center rounded-2xl border border-dashed border-white/10 bg-white/[0.02] py-24 px-12 text-center md:mt-12" aria-hidden="true">
+                    <span class="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-neutral-800/80 text-neutral-500" aria-hidden="true">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                    </span>
+                    <p class="text-base font-medium text-neutral-400">No projects in this category yet.</p>
+                    <p class="mt-1 text-sm text-neutral-500">Try another filter or check back later.</p>
+                </div>
             </div>
         </section>
 

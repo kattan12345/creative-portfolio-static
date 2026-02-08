@@ -40,17 +40,7 @@
         transition: opacity ${TRANSITION_DURATION_MS}ms ease-out, transform ${TRANSITION_DURATION_MS}ms ease-out;
       }
       [data-portfolio-item].portfolio-item-hidden {
-        opacity: 0;
-        transform: scale(0.95);
-        pointer-events: none;
-        visibility: hidden;
-        flex: 0 0 0 !important;
-        width: 0 !important;
-        min-width: 0 !important;
-        max-width: 0 !important;
-        overflow: hidden !important;
-        margin: 0 !important;
-        padding: 0 !important;
+        display: none !important;
       }
       [data-portfolio-animate="section-header"],
       [data-portfolio-animate="filter-tabs"] {
@@ -73,13 +63,22 @@
         transform: translateY(0) scale(1);
       }
       .portfolio-filter.${ACTIVE_CLASS} {
-        background: linear-gradient(to right, rgb(192, 38, 211), rgb(219, 39, 119)) !important;
+        background: linear-gradient(135deg, rgb(192, 38, 211), rgb(219, 39, 119)) !important;
         color: rgb(255, 255, 255) !important;
         border-color: transparent !important;
-        box-shadow: 0 10px 15px -3px rgba(217, 70, 239, 0.2);
+        box-shadow: 0 4px 20px -2px rgba(217, 70, 239, 0.35);
       }
-      .portfolio-filter:not(.${ACTIVE_CLASS}) {
-        background: transparent !important;
+      .portfolio-grid[data-visible-count="1"] {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .portfolio-grid[data-visible-count="2"] {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 880px;
+        margin-left: auto;
+        margin-right: auto;
       }
     `;
     document.head.appendChild(style);
@@ -159,8 +158,13 @@
       if (match) visibleCount++;
     });
 
+    if (gridEl) {
+      gridEl.setAttribute('data-visible-count', String(visibleCount));
+    }
+
     if (emptyEl) {
-      emptyEl.style.display = visibleCount === 0 ? 'block' : 'none';
+      emptyEl.classList.toggle('hidden', visibleCount > 0);
+      emptyEl.style.display = visibleCount === 0 ? 'flex' : 'none';
       emptyEl.setAttribute('aria-hidden', visibleCount > 0 ? 'true' : 'false');
     }
 
