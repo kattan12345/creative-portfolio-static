@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Creative Portfolio - Modern portfolio website showcasing web design, branding, and development projects">
+    <meta property="og:title" content="Creative Portfolio - Modern Web Design &amp; Development">
+    <meta property="og:description" content="Creative Portfolio - Modern portfolio website showcasing web design, branding, and development projects">
+    <meta property="og:url" content="/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Creative Portfolio - Modern Web Design &amp; Development">
+    <meta name="twitter:description" content="Creative Portfolio - Modern portfolio website showcasing web design, branding, and development projects">
     <title>Creative Portfolio - Modern Web Design & Development</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -152,9 +159,9 @@
             </div>
         </section>
 
-        <!-- CRITICAL FIX: C4 - ポートフォリオカードをWordPress版構造に（aでラップ、ホバーオーバーレイ・カテゴリバッジ・下部タイトルブロック、data-*維持） -->
+        <!-- MEDIUM FIX: M2 - コンテナを max-w-7xl に統一。L4: aria-labelledby は既に付与済み -->
         <section id="work" class="py-24 lg:py-32 bg-neutral-950 border-t border-white/[0.06]" aria-labelledby="portfolio-heading">
-            <div class="container">
+            <div class="mx-auto max-w-7xl px-6">
                 <div data-portfolio-animate="section-header" class="text-center mb-12" id="portfolio-heading">
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Selected Work</h2>
                     <p class="max-w-xl mx-auto text-neutral-400">A selection of our latest projects across web design, branding, and development.</p>
@@ -292,41 +299,74 @@
             </div>
         </section>
 
-        <!-- Services #services -->
-        <section id="services" class="py-24 lg:py-32 bg-neutral-950 border-t border-white/[0.06]">
-            <div class="container">
-                <div data-services-animate="section-header" class="text-center mb-16">
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">What We Do</h2>
-                    <p class="max-w-xl mx-auto text-neutral-400">From strategy to launch, we deliver end-to-end digital solutions.</p>
+        <!-- MEDIUM FIX: M3 - サービスにフィーチャーリスト・アイコン h-16/w-16 グラデ・Learn More。L4: aria-labelledby services-heading -->
+        <section id="services" class="relative py-24 lg:py-32 bg-neutral-950 border-t border-white/[0.06]" aria-labelledby="services-heading">
+            <div class="relative mx-auto max-w-7xl px-6">
+                <div data-services-animate="section-header" class="mb-16 text-center" id="services-heading">
+                    <span class="mb-4 inline-block text-sm font-medium uppercase tracking-[0.3em]"><span class="bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent">What We Do</span></span>
+                    <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-white text-balance md:text-5xl lg:text-6xl">Our Services</h2>
+                    <p class="mx-auto max-w-xl text-base leading-relaxed text-neutral-400 md:text-lg">From strategy to launch, we deliver end-to-end digital solutions.</p>
                 </div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                    <article data-services-animate="card" data-delay="0" class="service-card group relative p-8 rounded-2xl border border-white/10 bg-neutral-900/50 hover:border-fuchsia-500/50 hover:shadow-fuchsia-500/20 transition-all duration-300">
-                        <div data-service-icon class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-fuchsia-500/20 text-fuchsia-400 mb-6 transition-transform duration-300">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <article data-services-animate="card" data-delay="0" class="service-card group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/80 p-8 backdrop-blur-sm transition-all duration-300 hover:border-fuchsia-500/50 hover:shadow-[0_0_40px_-12px_rgba(217,70,239,0.15)]">
+                        <div data-service-icon class="service-icon mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-fuchsia-600 to-pink-600 text-white shadow-lg shadow-fuchsia-500/20 transition-transform duration-300 group-hover:rotate-6" aria-hidden="true">
+                            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Web Design</h3>
-                        <p class="text-neutral-400 leading-relaxed">Beautiful, responsive websites that convert. We focus on UX and performance.</p>
+                        <h3 class="mb-3 text-xl font-bold text-white">Web Design</h3>
+                        <p class="mb-6 text-sm leading-relaxed text-neutral-400">Beautiful, responsive websites that convert. We focus on UX and performance.</p>
+                        <ul class="mb-6 flex flex-col gap-2" aria-label="Web Design features">
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Responsive Design</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Modern UI/UX</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Performance</span></li>
+                        </ul>
+                        <div class="translate-y-2 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="inline-flex items-center gap-1.5 text-sm font-medium"><span class="bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent">Learn More</span><svg class="h-3.5 w-3.5 text-pink-400 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        </div>
                     </article>
-                    <article data-services-animate="card" data-delay="100" class="service-card group relative p-8 rounded-2xl border border-white/10 bg-neutral-900/50 hover:border-fuchsia-500/50 hover:shadow-fuchsia-500/20 transition-all duration-300">
-                        <div data-service-icon class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-fuchsia-500/20 text-fuchsia-400 mb-6 transition-transform duration-300">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+                    <article data-services-animate="card" data-delay="100" class="service-card group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/80 p-8 backdrop-blur-sm transition-all duration-300 hover:border-fuchsia-500/50 hover:shadow-[0_0_40px_-12px_rgba(217,70,239,0.15)]">
+                        <div data-service-icon class="service-icon mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-fuchsia-600 to-pink-600 text-white shadow-lg shadow-fuchsia-500/20 transition-transform duration-300 group-hover:rotate-6" aria-hidden="true">
+                            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Branding</h3>
-                        <p class="text-neutral-400 leading-relaxed">Identity, guidelines, and visual systems that make your brand memorable.</p>
+                        <h3 class="mb-3 text-xl font-bold text-white">Branding</h3>
+                        <p class="mb-6 text-sm leading-relaxed text-neutral-400">Identity, guidelines, and visual systems that make your brand memorable.</p>
+                        <ul class="mb-6 flex flex-col gap-2" aria-label="Branding features">
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Logo Design</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Brand Guidelines</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Visual Identity</span></li>
+                        </ul>
+                        <div class="translate-y-2 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="inline-flex items-center gap-1.5 text-sm font-medium"><span class="bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent">Learn More</span><svg class="h-3.5 w-3.5 text-pink-400 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        </div>
                     </article>
-                    <article data-services-animate="card" data-delay="200" class="service-card group relative p-8 rounded-2xl border border-white/10 bg-neutral-900/50 hover:border-fuchsia-500/50 hover:shadow-fuchsia-500/20 transition-all duration-300">
-                        <div data-service-icon class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-fuchsia-500/20 text-fuchsia-400 mb-6 transition-transform duration-300">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+                    <article data-services-animate="card" data-delay="200" class="service-card group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/80 p-8 backdrop-blur-sm transition-all duration-300 hover:border-fuchsia-500/50 hover:shadow-[0_0_40px_-12px_rgba(217,70,239,0.15)]">
+                        <div data-service-icon class="service-icon mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-fuchsia-600 to-pink-600 text-white shadow-lg shadow-fuchsia-500/20 transition-transform duration-300 group-hover:rotate-6" aria-hidden="true">
+                            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Mobile Apps</h3>
-                        <p class="text-neutral-400 leading-relaxed">Native and cross-platform apps that users love. iOS, Android, and PWA.</p>
+                        <h3 class="mb-3 text-xl font-bold text-white">Mobile Apps</h3>
+                        <p class="mb-6 text-sm leading-relaxed text-neutral-400">Native and cross-platform apps that users love. iOS, Android, and PWA.</p>
+                        <ul class="mb-6 flex flex-col gap-2" aria-label="Mobile Apps features">
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">iOS &amp; Android</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">PWA</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">User Experience</span></li>
+                        </ul>
+                        <div class="translate-y-2 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="inline-flex items-center gap-1.5 text-sm font-medium"><span class="bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent">Learn More</span><svg class="h-3.5 w-3.5 text-pink-400 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        </div>
                     </article>
-                    <article data-services-animate="card" data-delay="300" class="service-card group relative p-8 rounded-2xl border border-white/10 bg-neutral-900/50 hover:border-fuchsia-500/50 hover:shadow-fuchsia-500/20 transition-all duration-300">
-                        <div data-service-icon class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-fuchsia-500/20 text-fuchsia-400 mb-6 transition-transform duration-300">
-                            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8V7m-8 8h8m-8 0V7m0 8v8"/></svg>
+                    <article data-services-animate="card" data-delay="300" class="service-card group relative overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-900/80 p-8 backdrop-blur-sm transition-all duration-300 hover:border-fuchsia-500/50 hover:shadow-[0_0_40px_-12px_rgba(217,70,239,0.15)]">
+                        <div data-service-icon class="service-icon mb-6 inline-flex h-16 w-16 items-center justify-center rounded-xl bg-gradient-to-br from-fuchsia-600 to-pink-600 text-white shadow-lg shadow-fuchsia-500/20 transition-transform duration-300 group-hover:rotate-6" aria-hidden="true">
+                            <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8V7m-8 8h8m-8 0V7m0 8v8"/></svg>
                         </div>
-                        <h3 class="text-xl font-semibold text-white mb-2">Marketing</h3>
-                        <p class="text-neutral-400 leading-relaxed">Content, campaigns, and growth strategies to reach your audience.</p>
+                        <h3 class="mb-3 text-xl font-bold text-white">Marketing</h3>
+                        <p class="mb-6 text-sm leading-relaxed text-neutral-400">Content, campaigns, and growth strategies to reach your audience.</p>
+                        <ul class="mb-6 flex flex-col gap-2" aria-label="Marketing features">
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Social Media</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Content Strategy</span></li>
+                            <li class="flex items-center gap-3"><svg class="h-4 w-4 shrink-0 text-fuchsia-400" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="text-sm text-neutral-500">Analytics</span></li>
+                        </ul>
+                        <div class="translate-y-2 opacity-0 transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+                            <span class="inline-flex items-center gap-1.5 text-sm font-medium"><span class="bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-transparent">Learn More</span><svg class="h-3.5 w-3.5 text-pink-400 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+                        </div>
                     </article>
                 </div>
             </div>
@@ -335,13 +375,39 @@
         <!-- Contact #contact -->
         <!-- CRITICAL FIX: C5 - success_url 追加。#contact-status と data-contact-submit は維持。aria-labelledby 追加 -->
         <section id="contact" class="py-24 lg:py-32 bg-neutral-950 border-t border-white/[0.06]" aria-labelledby="contact-heading">
-            <div class="container max-w-3xl">
-                <div data-contact-animate="fade-left" class="text-center mb-12" id="contact-heading">
-                    <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Get in Touch</h2>
-                    <p class="text-neutral-400">Have a project in mind? Send us a message and we’ll get back within 24 hours.</p>
-                </div>
-                <div data-contact-animate="fade-right" data-contact-stagger>
-                    <div id="contact-status" class="mb-6 flex items-center gap-3 rounded-lg border p-4 hidden" role="alert" aria-live="polite">
+            <div class="relative z-10 mx-auto max-w-6xl px-6">
+                <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+                    <div data-contact-animate="fade-left" data-contact-stagger>
+                        <div data-contact-animate="fade-left" class="mb-10">
+                            <span class="mb-3 inline-block bg-gradient-to-r from-fuchsia-400 to-pink-400 bg-clip-text text-sm font-semibold uppercase tracking-widest text-transparent">Get In Touch</span>
+                            <h2 id="contact-heading" class="mb-4 text-4xl font-extrabold leading-tight tracking-tight text-white text-balance md:text-5xl">Let's Work Together</h2>
+                            <p class="max-w-md text-base leading-relaxed text-neutral-400">Have a project in mind? Send us a message and we'll get back within 24 hours.</p>
+                        </div>
+                        <div class="space-y-4">
+                            <a href="mailto:hello@creative.agency" class="group flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/50 p-4 transition-all duration-300 hover:border-fuchsia-500/50 hover:bg-neutral-900/80">
+                                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-neutral-800/80 transition-colors duration-300 group-hover:bg-fuchsia-500/10">
+                                    <svg class="h-5 w-5 text-fuchsia-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                </div>
+                                <div><p class="text-xs font-medium uppercase tracking-wider text-neutral-500">Email</p><p class="text-sm font-medium text-white">hello@creative.agency</p></div>
+                            </a>
+                            <a href="tel:+15551234567" class="group flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/50 p-4 transition-all duration-300 hover:border-fuchsia-500/50 hover:bg-neutral-900/80">
+                                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-neutral-800/80 transition-colors duration-300 group-hover:bg-fuchsia-500/10">
+                                    <svg class="h-5 w-5 text-fuchsia-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                                <div><p class="text-xs font-medium uppercase tracking-wider text-neutral-500">Phone</p><p class="text-sm font-medium text-white">+1 (555) 123-4567</p></div>
+                            </a>
+                            <div class="group flex items-center gap-4 rounded-xl border border-neutral-800 bg-neutral-900/50 p-4">
+                                <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-neutral-800/80">
+                                    <svg class="h-5 w-5 text-fuchsia-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div><p class="text-xs font-medium uppercase tracking-wider text-neutral-500">Location</p><p class="text-sm font-medium text-white">San Francisco, CA</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-contact-animate="fade-right">
+                        <div class="rounded-2xl border border-neutral-800 bg-neutral-900/50 p-6 backdrop-blur-xl sm:p-8">
+                            <h3 class="mb-6 text-xl font-semibold text-white">Send us a message</h3>
+                            <div id="contact-status" class="mb-6 flex items-center gap-3 rounded-lg border p-4 hidden" role="alert" aria-live="polite">
                         <span class="contact-status-icon shrink-0"></span>
                         <span class="contact-status-message"></span>
                     </div>
@@ -378,6 +444,8 @@
                             </span>
                         </button>
                     </form>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -385,8 +453,11 @@
 
     <!-- Footer -->
     <footer class="py-12 border-t border-white/[0.06] bg-neutral-950">
-        <div class="container flex flex-col md:flex-row items-center justify-between gap-6">
-            <p class="text-sm text-neutral-500">© 2026 Creative Portfolio. All rights reserved.</p>
+        <div class="mx-auto max-w-7xl px-5 flex flex-col md:flex-row items-center justify-between gap-6 lg:px-8">
+            <div class="flex flex-col gap-1">
+                <p class="text-sm text-neutral-500">© 2026 Creative Portfolio. All rights reserved.</p>
+                <p class="text-xs text-neutral-600">Built with ❤️ using v0.dev + Cursor</p>
+            </div>
             <div class="flex items-center gap-6" aria-label="Social links">
                 <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-fuchsia-400 transition-colors duration-200" aria-label="Twitter">Twitter</a>
                 <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="text-neutral-400 hover:text-fuchsia-400 transition-colors duration-200" aria-label="GitHub">GitHub</a>
@@ -405,8 +476,8 @@
       // Static / Netlify: expose minimal config so scripts that check for it don’t bail.
       window.creativePortfolio = { ajaxUrl: '', nonce: '', homeUrl: '/' };
     </script>
-    <script src="./assets/js/main.js"></script>
     <script src="./assets/js/header.js"></script>
+    <script src="./assets/js/main.js"></script>
     <script src="./assets/js/hero.js"></script>
     <script src="./assets/js/portfolio-filter.js"></script>
     <script src="./assets/js/services.js"></script>

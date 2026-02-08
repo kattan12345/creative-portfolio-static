@@ -1,6 +1,15 @@
 /**
  * Creative Portfolio — Header behavior (vanilla JS).
+ * Shared by WordPress theme and static site. No creativePortfolio.* or WP globals.
  * Replaces v0.dev React/Framer Motion: mobile menu, scroll spy, progress bar, smooth scroll, logo animation.
+ *
+ * Selectors (must match HTML):
+ *   [data-header], [data-header-inner], [data-header-row], [data-logo-wordmark],
+ *   [data-scroll-progress], [data-mobile-menu], [data-mobile-backdrop], [data-mobile-panel],
+ *   [data-mobile-toggle], [data-mobile-nav-links] a[data-section], .header-nav a[data-section],
+ *   .mobile-nav-link, [data-mobile-nav-line], [data-mobile-cta], [data-mobile-footer],
+ *   [data-active-underline], [data-mobile-nav-num], [data-mobile-nav-label], [data-smooth-scroll]
+ * Body: data-aria-open, data-aria-close (for toggle aria-label).
  */
 
 (function () {
@@ -98,7 +107,7 @@
   }
 
   /**
-   * Scroll detection: update header “scrolled” state and active section.
+   * Scroll detection: update header "scrolled" state and active section.
    */
   function onScroll() {
     const y = window.scrollY ?? window.pageYOffset;
@@ -173,7 +182,7 @@
       if (label) label.classList.toggle('text-white', !active);
     });
 
-    // Progress bar: scaleX from 0 to 1 based on scroll progress
+    // Progress bar: scaleX from 0 to 1 based on scroll progress (apply to wrapper; inner keeps gradient)
     const progressEl = getProgressBar();
     if (progressEl) {
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
