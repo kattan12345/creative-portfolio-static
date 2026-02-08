@@ -1,36 +1,112 @@
-# Netlify configuration
+# =============================================================================
+# Netlify 本番運用向け設定（完全版）
+# Creative Portfolio - 静的サイト
+# =============================================================================
 
+# -----------------------------------------------------------------------------
+# ビルド設定
+# 静的サイトのためビルドコマンドは不要。publish のみ指定。
+# -----------------------------------------------------------------------------
 [build]
   publish = "."
+  command = ""
 
-# Form handling
+# -----------------------------------------------------------------------------
+# フォーム設定（Netlify Forms）
+# -----------------------------------------------------------------------------
 [forms]
   spam_protection = true
 
-# Redirects
+# -----------------------------------------------------------------------------
+# リダイレクト
+# 記述順が重要：先に一致したルールが適用される。
+# -----------------------------------------------------------------------------
+
+# WordPress 残骸パスは 404 に（セキュリティ・SEO対策）
 [[redirects]]
   from = "/wp-admin/*"
   to = "/404.html"
   status = 404
 
 [[redirects]]
+  from = "/wp-login.php"
+  to = "/404.html"
+  status = 404
+
+# SPA ライクなフォールバック（存在しないパスを index.html に）
+# force = false により、実在ファイルはそのまま配信される
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
   force = false
 
-# Security headers
+# -----------------------------------------------------------------------------
+# キャッシュ戦略（CSS/JS の Purge 問題予防・更新即反映）
+# 詳細なパスを先に、広いパスを後に書く。同一リクエストでは先に一致したブロックが適用される。
+# -----------------------------------------------------------------------------
+
+# HTML: キャッシュなし（更新即反映）
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# ルート index（/）用（HTML として扱う）
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# CSS: 短期キャッシュ（1時間）— デプロイ後のスタイル反映を早くする
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, s-maxage=3600"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# JavaScript: 短期キャッシュ（1時間）
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, s-maxage=3600"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# 画像: 長期キャッシュ（1週間 = 604800 秒）、immutable
+[[headers]]
+  for = "/assets/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800, immutable"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# 上記以外の全ファイル: セキュリティヘッダーのみ
 [[headers]]
   for = "/*"
   [headers.values]
-  X-Frame-Options = "DENY"
-  X-Content-Type-Options = "nosniff"
-  X-XSS-Protection = "1; mode=block"
-  Referrer-Policy = "strict-origin-when-cross-origin"
-  Permissions-Policy = "geolocation=(), microphone=(), camera=()"
-
-# Asset cache optimization
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-  Cache-Control = "public, max-age=31536000, immutable"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

@@ -2472,3 +2472,28 @@ body {
     line-height: 1;
   }
 }
+
+/* === Missing TailwindCSS Classes (Manual Addition for Netlify) === */
+
+/* Gap utilities */
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+/* Responsive gap utilities */
+@media (min-width: 768px) {
+  .md\:gap-4 { gap: 1rem; }
+  .md\:gap-6 { gap: 1.5rem; }
+  .md\:gap-8 { gap: 2rem; }
+}
+
+@media (min-width: 1024px) {
+  .lg\:gap-4 { gap: 1rem; }
+  .lg\:gap-6 { gap: 1.5rem; }
+  .lg\:gap-8 { gap: 2rem; }
+}
+
+/* Vertical spacing utilities */
+.space-y-4 > * + * { margin-top: 1rem; }
+.space-y-6 > * + * { margin-top: 1.5rem; }
+.space-y-8 > * + * { margin-top: 2rem; }
